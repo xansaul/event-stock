@@ -18,7 +18,7 @@ Asegúrate de tener instalado:
 Clona el proyecto usando git:
 
 ```bash
-  git clone https://github.com/xansaul/event-stock.git
+git clone https://github.com/xansaul/event-stock.git
 ````
 
 O descárgalo como `.zip` desde GitHub y descomprímelo.
@@ -30,14 +30,14 @@ O descárgalo como `.zip` desde GitHub y descomprímelo.
 Ejecuta:
 
 ```bash
-  composer install
+composer install
 ```
 
 
 ### 4. Generar la clave de aplicación
 
 ```bash
-  php artisan key:generate
+php artisan key:generate
 ```
 
 ---
@@ -47,7 +47,7 @@ Ejecuta:
 Crea las tablas y datos iniciales:
 
 ```bash
-  php artisan migrate --seed
+php artisan migrate --seed
 ```
 
 ---
@@ -57,7 +57,7 @@ Crea las tablas y datos iniciales:
 Ejecuta:
 
 ```bash
-  php artisan serve
+php artisan serve
 ```
 
 Esto iniciará el proyecto en
@@ -70,7 +70,7 @@ Esto iniciará el proyecto en
 En **otra instancia de la terminal**, dentro del mismo proyecto, corre el siguiente comando para procesar las colas:
 
 ```bash
-  php artisan queue:work
+php artisan queue:work
 ```
 ---
 ### Diagrama de comportamiento
