@@ -24,7 +24,11 @@ git clone https://github.com/xansaul/event-stock.git
 O descárgalo como `.zip` desde GitHub y descomprímelo.
 
 ---
-
+Ir a la carpeta del proyecto
+```bash
+cd event-stock
+```
+---
 ### 2. Instalar dependencias de PHP
 
 Ejecuta:
