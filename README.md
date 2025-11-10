@@ -1,14 +1,16 @@
+# Proyecto de Sincronización de Inventario (Laravel 11)
 
-Este proyecto está desarrollado con **Laravel 11** e incluye integración con colas de trabajo para procesar tareas en segundo plano.
+Este proyecto está desarrollado con **Laravel 11** e incluye integración con **colas de trabajo** para procesar tareas en segundo plano y sincronizar el inventario entre distintas plataformas.
 
 ---
-##  Requisitos previos
+## Requisitos previos
 
 Asegúrate de tener instalado:
 
-- PHP 8.3 o superior  
-- Composer  
-- Git (opcional)
+* PHP 8.3 o superior
+* Composer
+* Git (opcional)
+
 ---
 
 ## Instalación del proyecto
@@ -19,26 +21,39 @@ Clona el proyecto usando git:
 
 ```bash
 git clone https://github.com/xansaul/event-stock.git
-````
+```
 
 O descárgalo como `.zip` desde GitHub y descomprímelo.
 
 ---
-Ir a la carpeta del proyecto
+
+### 2. Ir a la carpeta del proyecto
+
 ```bash
 cd event-stock
 ```
----
-### 2. Instalar dependencias de PHP
 
-Ejecuta:
+---
+
+### 3. Instalar dependencias de PHP
 
 ```bash
 composer install
 ```
 
+---
 
-### 4. Generar la clave de aplicación
+### 4. Configurar el entorno
+
+Copia el archivo de entorno de ejemplo y renómbralo como `.env`:
+
+```bash
+cp .env.example .env
+```
+
+---
+
+### 5. Generar la clave de aplicación
 
 ```bash
 php artisan key:generate
@@ -46,9 +61,9 @@ php artisan key:generate
 
 ---
 
-### 5. Ejecutar migraciones y seeders
+### 6. Ejecutar migraciones y seeders
 
-Crea las tablas y datos iniciales:
+Crea las tablas y los datos iniciales de la base de datos:
 
 ```bash
 php artisan migrate --seed
@@ -56,7 +71,7 @@ php artisan migrate --seed
 
 ---
 
-### 6. Iniciar el servidor de desarrollo
+### 7. Iniciar el servidor de desarrollo
 
 Ejecuta:
 
@@ -64,20 +79,24 @@ Ejecuta:
 php artisan serve
 ```
 
-Esto iniciará el proyecto en
+Esto iniciará el proyecto en:
+
 [http://localhost:8000](http://localhost:8000)
 
 ---
 
-### 7. Ejecutar las colas de trabajo
+### 8. Ejecutar las colas de trabajo
 
 En **otra instancia de la terminal**, dentro del mismo proyecto, corre el siguiente comando para procesar las colas:
 
 ```bash
 php artisan queue:work
 ```
+
 ---
+
 ### Diagrama de comportamiento
+
 ![Diagrama de comportamiento](diagrama.svg)
 
 ---
@@ -101,7 +120,7 @@ Por defecto, al ejecutar los seeders, el **producto con ID 1** tendrá **25 unid
 
 ### 2. Simular una venta
 
-Para reducir el stock del producto  1, ejecuta:
+Para reducir el stock del producto 1, ejecuta:
 
 ```
 GET http://localhost:8000/simulate-sale
@@ -139,4 +158,3 @@ Esto indica que el sistema:
 * Detectó la actualización en la plataforma fuente (Amazon).
 * Omitió esa fuente original.
 * Propagó correctamente el nuevo stock a las demás integraciones (Mercado Libre y Shopify).
-
